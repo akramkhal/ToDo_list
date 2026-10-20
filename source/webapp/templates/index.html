@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Список задач{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="h3 mb-0">Список задач</h1>
+        <a class="btn btn-success" href="/tasks/add/">+ Добавить задачу</a>
+    </div>
+
+    {% if tasks %}
+        <table class="table table-hover align-middle bg-white shadow-sm">
+            <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Описание</th>
+                <th>Статус</th>
+                <th>Дата выполнения</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td class="task-description">{{ task.description }}</td>
+                    <td>
+                        <span class="badge status-{{ task.status }}">{{ task.get_status_display }}</span>
+                    </td>
+                    <td>{{ task.due_date|date:"d.m.Y"|default:"—" }}</td>
+                    <td class="text-end">
+                        <form action="/task/delete/?id={{ task.id }}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">Задач пока нет. <a href="/tasks/add/">Добавьте первую!</a></div>
+    {% endif %}
+{% endblock %}

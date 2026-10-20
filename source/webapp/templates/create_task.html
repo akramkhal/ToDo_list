@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Новая задача{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="h4 mb-3">Новая задача</h1>
+
+                    {% if errors %}
+                        <div class="alert alert-danger">
+                            {% for error in errors %}<div>{{ error }}</div>{% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <form action="/tasks/add/" method="post">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Описание</label>
+                            <textarea id="description" name="description" class="form-control" rows="3"
+                                      required>{{ description }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Статус</label>
+                            <select id="status" name="status" class="form-select">
+                                {% for value, label in status_choices %}
+                                    <option value="{{ value }}" {% if value == status %}selected{% endif %}>{{ label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="due_date" class="form-label">Дата выполнения</label>
+                            <input type="text" id="due_date" name="due_date" class="form-control"
+                                   value="{{ due_date }}" placeholder="YYYY-MM-DD, например 2021-12-19">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Добавить</button>
+                        <a href="/" class="btn btn-secondary">Отмена</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
