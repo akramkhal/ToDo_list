@@ -1,0 +1,20 @@
+body {
+    background-color: #f5f7fa;
+}
+
+.task-description {
+    white-space: pre-line;
+    max-width: 450px;
+}
+
+.status-new {
+    background-color: #6c757d;
+}
+
+.status-in_progress {
+    background-color: #fd7e14;
+}
+
+.status-done {
+    background-color: #198754;
+}
