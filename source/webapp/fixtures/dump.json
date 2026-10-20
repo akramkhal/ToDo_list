@@ -1,0 +1,38 @@
+[
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "description": "Купить продукты",
+    "status": "new",
+    "due_date": "2026-10-25"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "description": "Сделать домашнее задание по Django",
+    "status": "in_progress",
+    "due_date": "2026-10-22"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "description": "Прочитать документацию Django",
+    "status": "done",
+    "due_date": null
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "description": "Записаться к врачу",
+    "status": "new",
+    "due_date": null
+  }
+}
+]
