@@ -15,13 +15,19 @@
                         </div>
                     {% endif %}
 
-                    <form action="/tasks/add/" method="post">
+                    <form action="{% url 'task_add' %}" method="post">
                         {% csrf_token %}
 
                         <div class="mb-3">
                             <label for="description" class="form-label">Описание</label>
                             <textarea id="description" name="description" class="form-control" rows="3"
                                       required>{{ description }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="detailed_description" class="form-label">Подробное описание</label>
+                            <textarea id="detailed_description" name="detailed_description" class="form-control"
+                                      rows="6">{{ detailed_description }}</textarea>
                         </div>
 
                         <div class="mb-3">
@@ -40,7 +46,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Добавить</button>
-                        <a href="/" class="btn btn-secondary">Отмена</a>
+                        <a href="{% url 'index' %}" class="btn btn-secondary">Отмена</a>
                     </form>
                 </div>
             </div>
