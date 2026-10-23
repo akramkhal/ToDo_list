@@ -5,7 +5,8 @@
   "fields": {
     "description": "Купить продукты",
     "status": "new",
-    "due_date": "2026-10-25"
+    "due_date": "2026-10-25",
+    "detailed_description": "Список покупок:\n    - молоко\n    - хлеб\n    - яйца\n    - сыр\nЗайти в магазин после работы."
   }
 },
 {
@@ -14,7 +15,8 @@
   "fields": {
     "description": "Сделать домашнее задание по Django",
     "status": "in_progress",
-    "due_date": "2026-10-22"
+    "due_date": "2026-10-22",
+    "detailed_description": "Домашнее задание #53:\n  1. Добавить поле подробного описания\n  2. Сделать страницу детального просмотра\n  3. Именованные url, reverse и {% url %}\n\nНе забыть смержить ветку в main."
   }
 },
 {
@@ -23,7 +25,8 @@
   "fields": {
     "description": "Прочитать документацию Django",
     "status": "done",
-    "due_date": null
+    "due_date": null,
+    "detailed_description": "Разделы для чтения:\n    * URL dispatcher\n    * Шаблоны и наследование\n    * Шорткаты: render, redirect, get_object_or_404"
   }
 },
 {
@@ -32,7 +35,8 @@
   "fields": {
     "description": "Записаться к врачу",
     "status": "new",
-    "due_date": null
+    "due_date": null,
+    "detailed_description": "Позвонить в клинику утром.\nВзять с собой:\n    паспорт\n    полис"
   }
 }
 ]
