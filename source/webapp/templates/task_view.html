@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Задача #{{ task.pk }}{% endblock %}
+
+{% block content %}
+    <h1 class="h3 mb-3">Задача #{{ task.pk }}</h1>
+
+    <p><b>Описание:</b> {{ task.description }}</p>
+    <p><b>Статус:</b> {{ task.get_status_display }}</p>
+    <p><b>Дата выполнения:</b> {{ task.due_date|date:"d.m.Y"|default:"—" }}</p>
+    <p><b>Подробное описание:</b></p>
+    <div class="multiline-text mb-4">{{ task.detailed_description|default:"—" }}</div>
+
+    <a href="{% url 'index' %}" class="btn btn-secondary">Назад к списку</a>
+    <form action="{% url 'task_delete' task.pk %}" method="post" class="d-inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger">Удалить</button>
+    </form>
+{% endblock %}

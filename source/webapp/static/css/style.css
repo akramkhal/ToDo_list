@@ -2,9 +2,9 @@ body {
     background-color: #f5f7fa;
 }
 
-.task-description {
-    white-space: pre-line;
-    max-width: 450px;
+/* показывает текст с переносами строк и отступами, как его ввели */
+.multiline-text {
+    white-space: pre-wrap;
 }
 
 .status-new {
