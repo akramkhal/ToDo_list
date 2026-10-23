@@ -8,6 +8,7 @@ class Task(models.Model):
     status = models.CharField(max_length=20, null=False, blank=False, choices=STATUS_CHOICES, default='new',
                               verbose_name="Статус")
     due_date = models.DateField(null=True, blank=True, default=None, verbose_name="Дата выполнения")
+    detailed_description = models.TextField(blank=True, default='', verbose_name="Подробное описание")
 
     def __str__(self):
         return f'{self.pk} - {self.description}'
