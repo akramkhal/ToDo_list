@@ -13,8 +13,7 @@
 
     <a href="{% url 'index' %}" class="btn btn-secondary">Назад к списку</a>
     <a href="{% url 'task_update' task.pk %}" class="btn btn-success">Обновить</a>
-    <form action="{% url 'task_delete' task.pk %}" method="post" class="d-inline">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-outline-danger">Удалить</button>
-    </form>
+    <a href="{% url 'task_delete' task.pk %}" class="btn  btn-outline-danger">Удалить</a>
 {% endblock %}
+
+
