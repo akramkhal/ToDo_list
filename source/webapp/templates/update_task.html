@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Редактирование задачи{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="h4 mb-3">Редактирование задачи</h1>
+                        {% include 'partial/task_form.html' with button_value='Сохранить' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -33,6 +33,26 @@ def task_create_view(request):
         else:
             return render(request, 'create_task.html', {'form': form})
 
+
+def task_update_view(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'GET':
+        form = TaskForm(initial={'description': task.description, 'detailed_description': task.detailed_description,
+                                 'status': task.status, 'due_date': task.due_date})
+        return render(request, 'update_task.html', {'task': task, 'form': form})
+    elif request.method == 'POST':
+        form = TaskForm(data=request.POST)
+        if form.is_valid():
+            task.description = form.cleaned_data.get('description')
+            task.detailed_description = form.cleaned_data.get('detailed_description')
+            task.status = form.cleaned_data.get('status')
+            task.due_date = form.cleaned_data.get('due_date')
+            task.save()
+            return redirect('task_view', pk=task.pk)
+        else:
+            return render(request, 'update_task.html', {'task': task,'form': form})
+
+
 def task_delete_view(request, pk):
     if request.method == 'POST':
         task = get_object_or_404(Task, pk=pk)

@@ -2,7 +2,6 @@ body {
     background-color: #f5f7fa;
 }
 
-/* показывает текст с переносами строк и отступами, как его ввели */
 .multiline-text {
     white-space: pre-wrap;
 }
